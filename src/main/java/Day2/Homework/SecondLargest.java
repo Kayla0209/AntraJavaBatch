@@ -1,4 +1,4 @@
-package Day2.HomeWork;
+package Day2.Homework;
 
 public class SecondLargest {
     public static void main(String[] args) {
