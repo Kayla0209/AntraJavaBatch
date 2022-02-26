@@ -56,6 +56,8 @@ class DataTypes {
 
 // - flow control: if, else, switch, case, default, for, do, while, break, continue, return
 class FlowControl {
+    // Default methods enable new functionality to be added to the interfaces of libraries and ensure binary
+    // compatibility with code written for older versions of those interfaces.
     int age;
 
     public FlowControl(int age) {
@@ -166,7 +168,7 @@ class FlowControl {
         }
     }
 
-    public int returnKeyword() {
+    public int xreturnKeyword() {
         // return finished the execution of a method, and can be used to return a value from a method.
         return age + 5;
     }
@@ -211,6 +213,7 @@ class Modifiers { // if add public before class, the class becomes a public clas
     //    performing operations in the floating-point variable.
     // 10. transient
     //  - is used to avoid serialization. Serialization is the process of converting an object into a byte stream.
+    //  - this way, we can protect some sensitive data such as ssn.
     // 11. volatile
     //  - ensures the visibility aspect of the data change without providing mutual exclusion.
 
