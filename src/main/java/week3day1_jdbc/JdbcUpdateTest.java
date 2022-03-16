@@ -1,37 +1,38 @@
-package week3day1;
+package week3day1_jdbc;
 
-import week3day1.utils.JdbcConfig;
+import week3day1_jdbc.utils.JdbcConfig;
 
 import java.sql.*;
 
-public class JdbcSelectTest {
+public class JdbcUpdateTest {
     public static void main(String[] args) {
-        try(
-                Connection conn  = DriverManager.getConnection(
+        try (
+                Connection conn = DriverManager.getConnection(
                         JdbcConfig.getUrl(),
                         JdbcConfig.getUser(),
                         JdbcConfig.getPassword()
                 );
                 Statement stmt = conn.createStatement();
         ) {
-            String strSelect = "select title, price, qty from books";
+            String strUpdate = "update books set price = price * 2, qty = qty - 1 where title = 'C++'";
 
-            System.out.println("The sql query is " + strSelect);
+            System.out.println("The sql query is " + strUpdate);
             System.out.println();
 
+            int countUpdate = stmt.executeUpdate(strUpdate);
+            System.out.println(countUpdate + " records are updated");
+
+            String strSelect = "select * from books where title = 'C++'";
+            System.out.println("the sql query is " + strSelect);
             ResultSet resultSet = stmt.executeQuery(strSelect);
-            System.out.println("The records selected are: ");
-            int rowCount = 0;
 
             while (resultSet.next()) {
                 String title = resultSet.getString("title");
                 String price = resultSet.getString("price");
                 int qty = resultSet.getInt("qty");
                 System.out.println(title + ", " + price + ", " + qty);
-                rowCount++;
-            }
-            System.out.println("Total number of records = " + rowCount);
 
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

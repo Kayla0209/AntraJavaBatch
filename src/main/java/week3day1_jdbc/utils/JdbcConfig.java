@@ -1,4 +1,4 @@
-package week3day1.utils;
+package week3day1_jdbc.utils;
 
 public class JdbcConfig {
 

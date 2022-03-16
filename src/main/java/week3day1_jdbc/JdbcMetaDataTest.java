@@ -1,6 +1,6 @@
-package week3day1;
+package week3day1_jdbc;
 
-import week3day1.utils.JdbcConfig;
+import week3day1_jdbc.utils.JdbcConfig;
 
 import java.sql.*;
 
